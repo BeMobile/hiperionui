@@ -1,4 +1,5 @@
 import codeCoverage from '@cypress/code-coverage/task'
+import { initPlugin } from '@frsource/cypress-plugin-visual-regression-diff/plugins'
 import { defineConfig } from 'cypress'
 
 export default defineConfig({
@@ -10,6 +11,7 @@ export default defineConfig({
 	component: {
 		setupNodeEvents(on, config) {
 			codeCoverage(on, config)
+			initPlugin(on, config)
 
 			return config
 		},
