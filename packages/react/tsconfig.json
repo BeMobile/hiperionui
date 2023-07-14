@@ -1,0 +1,9 @@
+{
+	"extends": "@be-kit/tsconfig/react-library.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./*"]
+		}
+	}
+}

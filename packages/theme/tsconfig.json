@@ -1,0 +1,3 @@
+{
+	"extends": "@be-kit/tsconfig/base.json"
+}
