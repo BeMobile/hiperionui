@@ -1,6 +1,5 @@
+import { addPrefix, defaultHoverDuration } from '@/util'
 import plugin from 'tailwindcss/plugin'
-
-import { addPrefix } from '../util/addPrefix'
 
 export function button() {
 	return plugin(({ addComponents }) => {
@@ -13,6 +12,8 @@ export function button() {
 				'btn-solid': {
 					/*tw*/ '@apply text-white border-[3px] border-solid border-transparent':
 						{},
+
+					transition: `background ${defaultHoverDuration} linear, color ${defaultHoverDuration} linear, border-color ${defaultHoverDuration} ease-in-out`,
 
 					'&-main': {
 						/*tw*/ '@apply bg-main-500 hover:bg-main-600 hover:border-main-100':

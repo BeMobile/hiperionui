@@ -1,6 +1,9 @@
 import {
   addPrefix
 } from "./chunk-TOTFP7JZ.js";
+import {
+  defaultHoverDuration
+} from "./chunk-ULJTHSS2.js";
 
 // lib/components/button.ts
 import plugin from "tailwindcss/plugin";
@@ -13,6 +16,7 @@ function button() {
         },
         "btn-solid": {
           "@apply text-white border-[3px] border-solid border-transparent": {},
+          transition: `background ${defaultHoverDuration} linear, color ${defaultHoverDuration} linear, border-color ${defaultHoverDuration} ease-in-out`,
           "&-main": {
             "@apply bg-main-500 hover:bg-main-600 hover:border-main-100": {}
           },

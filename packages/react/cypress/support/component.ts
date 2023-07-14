@@ -10,7 +10,9 @@ declare global {
 	namespace Cypress {
 		interface Chainable {
 			mount: typeof mount
-			checkButtonStyles: (props?: ButtonVariantProps) => void
+			checkButtonStyles: (
+				props: Partial<ButtonVariantProps> & { titlePrefix: string }
+			) => void
 		}
 	}
 }

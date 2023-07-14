@@ -109,6 +109,7 @@
   border-color: transparent;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition: background 150ms linear, color 150ms linear, border-color 150ms ease-in-out;
 }
 
 .hiperion-btn-solid-main {
