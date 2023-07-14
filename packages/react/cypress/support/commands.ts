@@ -5,6 +5,10 @@ import { toRgbString } from '@/lib/test/util'
 import { theme } from '@hiperionui/theme'
 import '@frsource/cypress-plugin-visual-regression-diff'
 
+const browser = Cypress.browser
+
+const isFirefox = browser.name === 'firefox'
+
 Cypress.Commands.add(
 	'checkButtonStyles',
 	({ titlePrefix, colorScheme = 'main', size = 'big', variant = 'solid' }) => {
@@ -17,6 +21,9 @@ Cypress.Commands.add(
 		cy.get(buttonClassBase).should('have.css', 'cursor', 'pointer')
 
 		if (variant === 'solid' && colorScheme === 'main') {
+			// the real events library doesn't work on firefox
+			if (isFirefox) return
+
 			cy.get(buttonClassBase).realHover()
 			cy.get(buttonClassBase)
 				.should(

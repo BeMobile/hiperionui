@@ -32,7 +32,7 @@ describe('<Button />', () => {
 				.and('have.class', ButtonClass.SOLID_MAIN)
 				.and('have.class', ButtonClass.BIG)
 				.and('not.have.class', ButtonClass.OUTLINED)
-				.checkButtonStyles({ titlePrefix: 'default-button', ...props })
+				.checkButtonStyles({ titlePrefix: 'match-props', ...props })
 		})
 	})
 })
