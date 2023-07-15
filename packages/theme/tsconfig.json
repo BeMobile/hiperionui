@@ -1,8 +1,3 @@
 {
-	"extends": "@be-kit/tsconfig/base.json",
-	"compilerOptions": {
-		"paths": {
-			"@/*": ["./lib/*"]
-		}
-	}
+	"extends": "@be-kit/tsconfig/base.json"
 }

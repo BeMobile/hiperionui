@@ -1,5 +1,6 @@
-import { addPrefix, defaultHoverDuration } from '@/util'
 import plugin from 'tailwindcss/plugin'
+
+import { addPrefix, defaultHoverDuration } from '../util'
 
 export function button() {
 	return plugin(({ addComponents }) => {
