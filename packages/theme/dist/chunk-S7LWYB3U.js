@@ -15,7 +15,7 @@ function button() {
           "@apply rounded-pill cursor-pointer": {}
         },
         "btn-solid": {
-          "@apply text-white border-[3px] border-solid border-transparent": {},
+          "@apply text-white border-[3px] border-solid border-transparent disabled:bg-gray-400 disabled:cursor-not-allowed": {},
           transition: `background ${defaultHoverDuration} linear, color ${defaultHoverDuration} linear, border-color ${defaultHoverDuration} ease-in-out`,
           "&-main": {
             "@apply bg-main-500 hover:bg-main-600 hover:border-main-100": {}

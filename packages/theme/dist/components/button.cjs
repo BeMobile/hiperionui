@@ -29,6 +29,7 @@ __export(button_exports, {
   button: () => button
 });
 module.exports = __toCommonJS(button_exports);
+var import_plugin = __toESM(require("tailwindcss/plugin"), 1);
 
 // lib/util/addPrefix.ts
 function addPrefix(object) {
@@ -49,7 +50,6 @@ function addPrefix(object) {
 var defaultHoverDuration = "150ms";
 
 // lib/components/button.ts
-var import_plugin = __toESM(require("tailwindcss/plugin"), 1);
 function button() {
   return (0, import_plugin.default)(({ addComponents }) => {
     addComponents(
@@ -58,7 +58,7 @@ function button() {
           "@apply rounded-pill cursor-pointer": {}
         },
         "btn-solid": {
-          "@apply text-white border-[3px] border-solid border-transparent": {},
+          "@apply text-white border-[3px] border-solid border-transparent disabled:bg-gray-400 disabled:cursor-not-allowed": {},
           transition: `background ${defaultHoverDuration} linear, color ${defaultHoverDuration} linear, border-color ${defaultHoverDuration} ease-in-out`,
           "&-main": {
             "@apply bg-main-500 hover:bg-main-600 hover:border-main-100": {}

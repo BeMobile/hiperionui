@@ -11,7 +11,7 @@ export function button() {
 				},
 
 				'btn-solid': {
-					/*tw*/ '@apply text-white border-[3px] border-solid border-transparent':
+					/*tw*/ '@apply text-white border-[3px] border-solid border-transparent disabled:bg-gray-400 disabled:cursor-not-allowed':
 						{},
 
 					transition: `background ${defaultHoverDuration} linear, color ${defaultHoverDuration} linear, border-color ${defaultHoverDuration} ease-in-out`,
