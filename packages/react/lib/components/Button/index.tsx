@@ -44,7 +44,11 @@ const buttonStyles = cva(['hiperion-btn'], {
 	],
 })
 
-export type ButtonVariantProps = _VariantProps<typeof buttonStyles>
+type VariantProps = _VariantProps<typeof buttonStyles>
+
+export type ButtonVariantProps = {
+	[T in keyof VariantProps]: Exclude<VariantProps[T], null>
+}
 
 type DefaultButton = {
 	asChild?: false
