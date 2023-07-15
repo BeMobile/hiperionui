@@ -1,38 +1,104 @@
+import { ButtonVariantProps } from '@/dist'
 import { Button } from '@/lib'
-import { ButtonClass } from '@/lib/test/constants'
+import { toRgbString } from '@/lib/test/util'
+import { theme } from '@hiperionui/theme'
+
+import { ButtonDriver } from './ButtonDriver'
+
+const driver = new ButtonDriver()
+
+const snapshotTitlePrefix = 'match-props'
 
 describe('<Button />', () => {
-	it('should render default button (solid variant, main color and big size)', () => {
+	it('should render default button with correct styles (solid variant, main color and big size)', () => {
 		cy.mount(<Button>Button</Button>)
 
-		cy.get(`.${ButtonClass.BASE}`)
-			.should('have.text', 'Button')
-			.and('have.class', ButtonClass.BASE)
-			.and('have.class', ButtonClass.SOLID)
-			.and('have.class', ButtonClass.SOLID_MAIN)
-			.and('have.class', ButtonClass.BIG)
-			.and('not.have.class', ButtonClass.OUTLINED)
-			.checkButtonStyles({ titlePrefix: 'default-button' })
+		driver.assertCommonStyles()
+		driver
+			.assertSolidMainBigButtonClass()
+			.and('have.text', 'Button')
+			.assertButtonStyles({
+				snapshot: {
+					titlePrefix: 'default-button',
+				},
+			})
+	})
+
+	it('should render disabled solid button with correct styles', () => {
+		cy.mount(<Button disabled>Button</Button>)
+
+		driver.assertCommonStyles()
+		cy.get(driver.buttonClassBase)
+			.should('have.css', 'cursor', 'not-allowed')
+			.and('have.css', 'background-color', toRgbString(theme.colors.gray[400]))
+			.and('have.text', 'Button')
 	})
 
 	describe('Main Color', () => {
-		it('should render button matching props (solid variant, main color and big size)', () => {
+		it('should render solid button with correct styles', () => {
 			const props = {
 				variant: 'solid',
 				colorScheme: 'main',
 				size: 'big',
-			} as const
+			} satisfies ButtonVariantProps
 
 			cy.mount(<Button {...props}>Button</Button>)
 
-			cy.get(`.${ButtonClass.BASE}`)
-				.should('have.text', 'Button')
-				.and('have.class', ButtonClass.BASE)
-				.and('have.class', ButtonClass.SOLID)
-				.and('have.class', ButtonClass.SOLID_MAIN)
-				.and('have.class', ButtonClass.BIG)
-				.and('not.have.class', ButtonClass.OUTLINED)
-				.checkButtonStyles({ titlePrefix: 'match-props', ...props })
+			driver.assertCommonStyles()
+			driver
+				.assertSolidMainBigButtonClass()
+				.and('have.text', 'Button')
+				.assertButtonStyles({
+					...props,
+				})
+		})
+
+		it('should render outlined button with correct styles', () => {
+			const props = {
+				variant: 'outlined',
+				colorScheme: 'main',
+				size: 'big',
+			} satisfies ButtonVariantProps
+
+			cy.mount(<Button {...props}>Button</Button>)
+
+			driver.assertCommonStyles()
+			cy.get(driver.buttonClassBase).assertButtonStyles({
+				snapshot: {
+					titlePrefix: snapshotTitlePrefix,
+				},
+				...props,
+			})
+		})
+	})
+
+	// describe('Secondary Color', () => {})
+
+	describe('Size', () => {
+		it('should render big button', () => {
+			cy.mount(<Button size='big'>Button</Button>)
+
+			cy.assertButtonStyles({
+				size: 'big',
+			})
+		})
+
+		it('should render medium button', () => {
+			cy.mount(<Button size='medium'>Button</Button>)
+
+			cy.assertButtonStyles({
+				size: 'medium',
+				snapshot: { titlePrefix: snapshotTitlePrefix },
+			})
+		})
+
+		it('should render small button', () => {
+			cy.mount(<Button size='small'>Button</Button>)
+
+			cy.assertButtonStyles({
+				size: 'small',
+				snapshot: { titlePrefix: snapshotTitlePrefix },
+			})
 		})
 	})
 })
