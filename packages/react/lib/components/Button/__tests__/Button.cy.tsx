@@ -5,37 +5,26 @@ import { theme } from '@hiperionui/theme'
 
 import { ButtonDriver } from './ButtonDriver'
 
-const driver = new ButtonDriver()
-
 const snapshotTitlePrefix = 'match-props'
 
 describe('<Button />', () => {
 	it('should render default button with correct styles (solid variant, main color and big size)', () => {
+		const driver = new ButtonDriver({
+			variant: 'solid',
+			colorScheme: 'main',
+			size: 'big',
+		})
+
 		cy.mount(<Button>Button</Button>)
 
-		driver.assertCommonStyles()
-		driver
-			.assertSolidMainBigButtonClass()
-			.and('have.text', 'Button')
-			.assertButtonStyles({
-				snapshot: {
-					titlePrefix: 'default-button',
-				},
-			})
-	})
-
-	it('should render disabled solid button with correct styles', () => {
-		cy.mount(<Button disabled>Button</Button>)
+		driver.assertImageSnapshot('default-button')
+		driver.assertSolidMainBigButtonClass()
 
 		driver.assertCommonStyles()
-		cy.get(driver.buttonClassBase)
-			.should('have.css', 'cursor', 'not-allowed')
-			.and('have.css', 'background-color', toRgbString(theme.colors.gray[400]))
-			.and('have.text', 'Button')
-			.matchImage({
-				updateImages: true,
-				title: `disabled-solid-${Cypress.browser.name}`,
-			})
+		driver.assertBigSizeStyles()
+		driver.assertSolidVariantAndMainColorStyles()
+
+		cy.get(driver.buttonClassBase).should('have.text', 'Button')
 	})
 
 	describe('Main Color', () => {
@@ -46,15 +35,38 @@ describe('<Button />', () => {
 				size: 'big',
 			} satisfies ButtonVariantProps
 
+			const driver = new ButtonDriver(props)
+
 			cy.mount(<Button {...props}>Button</Button>)
 
+			driver.assertSolidMainBigButtonClass()
+
 			driver.assertCommonStyles()
-			driver
-				.assertSolidMainBigButtonClass()
+			driver.assertBigSizeStyles()
+			driver.assertSolidVariantAndMainColorStyles()
+			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+		})
+
+		it('should render disabled solid button with correct styles', () => {
+			const driver = new ButtonDriver({
+				variant: 'solid',
+				colorScheme: 'main',
+				size: 'big',
+			})
+
+			cy.mount(<Button disabled>Button</Button>)
+
+			driver.assertImageSnapshot('disabled')
+
+			cy.get(driver.buttonClassBase)
+				.should('have.css', 'cursor', 'not-allowed')
+				.and('have.css', 'border-radius', theme.borderRadius.pill)
+				.and(
+					'have.css',
+					'background-color',
+					toRgbString(theme.colors.gray[400])
+				)
 				.and('have.text', 'Button')
-				.assertButtonStyles({
-					...props,
-				})
 		})
 
 		it('should render outlined button with correct styles', () => {
@@ -64,15 +76,17 @@ describe('<Button />', () => {
 				size: 'big',
 			} satisfies ButtonVariantProps
 
+			const driver = new ButtonDriver(props)
+
 			cy.mount(<Button {...props}>Button</Button>)
 
+			driver.assertImageSnapshot(snapshotTitlePrefix)
+			driver.assertOutlinedMainBigButtonClass()
+
 			driver.assertCommonStyles()
-			cy.get(driver.buttonClassBase).assertButtonStyles({
-				snapshot: {
-					titlePrefix: snapshotTitlePrefix,
-				},
-				...props,
-			})
+			driver.assertBigSizeStyles()
+			driver.assertOutlinedVariantAndMainColorStyles()
+			cy.get(driver.buttonClassBase).and('have.text', 'Button')
 		})
 	})
 
@@ -80,29 +94,41 @@ describe('<Button />', () => {
 
 	describe('Size', () => {
 		it('should render big button', () => {
-			cy.mount(<Button size='big'>Button</Button>)
-
-			cy.assertButtonStyles({
+			const driver = new ButtonDriver({
+				variant: 'solid',
+				colorScheme: 'main',
 				size: 'big',
 			})
+
+			cy.mount(<Button size='big'>Button</Button>)
+
+			driver.assertBigSizeStyles()
 		})
 
 		it('should render medium button', () => {
+			const driver = new ButtonDriver({
+				variant: 'solid',
+				colorScheme: 'main',
+				size: 'medium',
+			})
+
 			cy.mount(<Button size='medium'>Button</Button>)
 
-			cy.assertButtonStyles({
-				size: 'medium',
-				snapshot: { titlePrefix: snapshotTitlePrefix },
-			})
+			driver.assertImageSnapshot(snapshotTitlePrefix)
+			driver.assertMediumSize()
 		})
 
 		it('should render small button', () => {
+			const driver = new ButtonDriver({
+				variant: 'solid',
+				colorScheme: 'main',
+				size: 'big',
+			})
+
 			cy.mount(<Button size='small'>Button</Button>)
 
-			cy.assertButtonStyles({
-				size: 'small',
-				snapshot: { titlePrefix: snapshotTitlePrefix },
-			})
+			driver.assertImageSnapshot(snapshotTitlePrefix)
+			driver.assertSmallSize()
 		})
 	})
 })
