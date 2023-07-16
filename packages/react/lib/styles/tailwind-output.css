@@ -138,32 +138,8 @@
   background-color: rgb(118 93 163 / var(--tw-bg-opacity));
 }
 
-.hiperion-btn-big {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 500;
-}
-
-.hiperion-btn-medium {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 14px;
-  padding-bottom: 14px;
-}
-
-.hiperion-btn-small {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .hiperion-btn-outlined {
-  border-width: 2px;
+  border-width: 1px;
   border-style: solid;
   background-color: transparent;
 }
@@ -180,6 +156,40 @@
   border-color: rgb(118 93 163 / var(--tw-border-opacity));
   --tw-text-opacity: 1;
   color: rgb(118 93 163 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-big {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  line-height: 19.2px;
+}
+
+.hiperion-btn-medium {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  line-height: 19.2px;
+}
+
+.hiperion-btn-small {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.2px;
 }
 
 button {

@@ -37,9 +37,7 @@ Cypress.Commands.add('assertButtonStyles', (props = {}) => {
 		'solid-secondary': () => {
 			//
 		},
-		'outlined-main': () => {
-			//
-		},
+		'outlined-main': () => driver.assertOutlinedVariantAndMainColor(),
 		'outlined-secondary': () => {
 			//
 		},

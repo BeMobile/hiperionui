@@ -11,17 +11,25 @@ export class __ButtonDriver__ {
 	}
 
 	assertBigSize() {
-		cy.get(this.buttonClassBase).should('have.css', 'padding-left', '40px')
-		cy.and('have.css', 'padding-right', '40px')
-		cy.and('have.css', 'padding-top', '14px')
-		cy.and('have.css', 'padding-bottom', '14px')
+		cy.get(this.buttonClassBase)
+			.should('have.css', 'padding-left', '40px')
+			.should('have.css', 'padding-right', '40px')
+			.and('have.css', 'padding-top', '14px')
+			.and('have.css', 'padding-bottom', '14px')
+			.and('have.css', 'font-size', '18px')
+			.and('have.css', 'font-weight', '500')
+			.and('have.css', 'line-height', '19.2px')
 	}
 
 	assertMediumSize() {
-		cy.get(this.buttonClassBase).should('have.css', 'padding-left', '32px')
-		cy.and('have.css', 'padding-right', '32px')
-		cy.and('have.css', 'padding-top', '14px')
-		cy.and('have.css', 'padding-bottom', '14px')
+		cy.get(this.buttonClassBase)
+			.should('have.css', 'padding-left', '32px')
+			.should('have.css', 'padding-right', '32px')
+			.and('have.css', 'padding-top', '14px')
+			.and('have.css', 'padding-bottom', '14px')
+			.and('have.css', 'font-size', '18px')
+			.and('have.css', 'font-weight', '500')
+			.and('have.css', 'line-height', '19.2px')
 	}
 
 	assertSmallSize() {
@@ -30,12 +38,20 @@ export class __ButtonDriver__ {
 			.and('have.css', 'padding-right', '16px')
 			.and('have.css', 'padding-top', '8px')
 			.and('have.css', 'padding-bottom', '8px')
+			.and('have.css', 'font-size', '16px')
+			.and('have.css', 'font-weight', '500')
+			.and('have.css', 'line-height', '24px')
+			.and('have.css', 'letter-spacing', '0.2px')
 	}
 
 	private assertSolidVariant() {
 		cy.get(this.buttonClassBase)
 			.and('have.css', 'color', toRgbString('#ffffff'))
 			.and('have.css', 'border-color', toRgbString('transparent'))
+	}
+
+	private assertOutlinedVariant() {
+		cy.get(this.buttonClassBase).should('have.css', 'border-width', '1px')
 	}
 
 	assertSolidVariantAndMainColor() {
@@ -58,5 +74,13 @@ export class __ButtonDriver__ {
 				`3px solid ${toRgbString(theme.colors.main[100])}`
 			)
 			.and('have.css', 'background-color', toRgbString(theme.colors.main[600]))
+	}
+
+	assertOutlinedVariantAndMainColor() {
+		this.assertOutlinedVariant()
+
+		cy.get(this.buttonClassBase)
+			.should('have.css', 'border-color', toRgbString(theme.colors.main[500]))
+			.and('have.css', 'color', toRgbString(theme.colors.main[500]))
 	}
 }

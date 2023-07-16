@@ -32,6 +32,10 @@ describe('<Button />', () => {
 			.should('have.css', 'cursor', 'not-allowed')
 			.and('have.css', 'background-color', toRgbString(theme.colors.gray[400]))
 			.and('have.text', 'Button')
+			.matchImage({
+				updateImages: true,
+				title: `disabled-solid-${Cypress.browser.name}`,
+			})
 	})
 
 	describe('Main Color', () => {

@@ -26,20 +26,8 @@ export function button() {
 					},
 				},
 
-				'btn-big': {
-					/*tw*/ '@apply px-10 py-[14px] text-lg font-medium': {},
-				},
-
-				'btn-medium': {
-					/*tw*/ '@apply px-8 py-[14px]': {},
-				},
-
-				'btn-small': {
-					/*tw*/ '@apply px-4 py-2': {},
-				},
-
 				'btn-outlined': {
-					/*tw*/ '@apply bg-transparent border-solid border-2': {},
+					/*tw*/ '@apply bg-transparent border-solid border': {},
 
 					'&-main': {
 						/*tw*/ '@apply border-main-500 text-main-500': {},
@@ -48,6 +36,21 @@ export function button() {
 					'&-secondary': {
 						/*tw*/ '@apply border-secondary-500 text-secondary-500': {},
 					},
+				},
+
+				'btn-big': {
+					/*tw*/ '@apply px-10 py-[14px] text-lg font-medium leading-[19.2px]':
+						{},
+				},
+
+				'btn-medium': {
+					/*tw*/ '@apply px-8 py-[14px] text-lg font-medium leading-[19.2px]':
+						{},
+				},
+
+				'btn-small': {
+					/*tw*/ '@apply px-4 py-2 text-base font-medium leading-[24px] tracking-[0.2px]':
+						{},
 				},
 			})
 		)

@@ -24,23 +24,23 @@ function button() {
             "@apply bg-secondary-500": {}
           }
         },
-        "btn-big": {
-          "@apply px-10 py-[14px] text-lg font-medium": {}
-        },
-        "btn-medium": {
-          "@apply px-8 py-[14px]": {}
-        },
-        "btn-small": {
-          "@apply px-4 py-2": {}
-        },
         "btn-outlined": {
-          "@apply bg-transparent border-solid border-2": {},
+          "@apply bg-transparent border-solid border": {},
           "&-main": {
             "@apply border-main-500 text-main-500": {}
           },
           "&-secondary": {
             "@apply border-secondary-500 text-secondary-500": {}
           }
+        },
+        "btn-big": {
+          "@apply px-10 py-[14px] text-lg font-medium leading-[19.2px]": {}
+        },
+        "btn-medium": {
+          "@apply px-8 py-[14px] text-lg font-medium leading-[19.2px]": {}
+        },
+        "btn-small": {
+          "@apply px-4 py-2 text-base font-medium leading-[24px] tracking-[0.2px]": {}
         }
       })
     );
