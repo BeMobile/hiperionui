@@ -55,7 +55,7 @@ function button() {
     addComponents(
       addPrefix({
         btn: {
-          "@apply rounded-pill cursor-pointer": {}
+          "@apply rounded-pill cursor-pointer box-border": {}
         },
         "btn-solid": {
           "@apply text-white border-[3px] border-solid border-transparent disabled:bg-gray-400 disabled:cursor-not-allowed": {},
@@ -68,9 +68,10 @@ function button() {
           }
         },
         "btn-outlined": {
-          "@apply bg-transparent border-solid border": {},
+          "@apply bg-transparent border-solid border-2": {},
           "&-main": {
-            "@apply border-main-500 text-main-500": {}
+            transition: `border-color ${defaultHoverDuration} linear, border-width ${defaultHoverDuration} linear, color ${defaultHoverDuration} linear`,
+            "@apply border-main-500 text-main-500 hover:border-main-700 hover:text-main-800": {}
           },
           "&-secondary": {
             "@apply border-secondary-500 text-secondary-500": {}

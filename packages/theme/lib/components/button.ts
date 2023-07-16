@@ -7,7 +7,7 @@ export function button() {
 		addComponents(
 			addPrefix({
 				btn: {
-					/*tw*/ '@apply rounded-pill cursor-pointer': {},
+					/*tw*/ '@apply rounded-pill cursor-pointer box-border': {},
 				},
 
 				'btn-solid': {
@@ -27,10 +27,12 @@ export function button() {
 				},
 
 				'btn-outlined': {
-					/*tw*/ '@apply bg-transparent border-solid border': {},
+					/*tw*/ '@apply bg-transparent border-solid border-2': {},
 
 					'&-main': {
-						/*tw*/ '@apply border-main-500 text-main-500': {},
+						transition: `border-color ${defaultHoverDuration} linear, border-width ${defaultHoverDuration} linear, color ${defaultHoverDuration} linear`,
+						/*tw*/ '@apply border-main-500 text-main-500 hover:border-main-700 hover:text-main-800':
+							{},
 					},
 
 					'&-secondary': {

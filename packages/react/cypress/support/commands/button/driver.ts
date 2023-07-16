@@ -13,7 +13,7 @@ export class __ButtonDriver__ {
 	assertBigSize() {
 		cy.get(this.buttonClassBase)
 			.should('have.css', 'padding-left', '40px')
-			.should('have.css', 'padding-right', '40px')
+			.and('have.css', 'padding-right', '40px')
 			.and('have.css', 'padding-top', '14px')
 			.and('have.css', 'padding-bottom', '14px')
 			.and('have.css', 'font-size', '18px')
@@ -24,7 +24,7 @@ export class __ButtonDriver__ {
 	assertMediumSize() {
 		cy.get(this.buttonClassBase)
 			.should('have.css', 'padding-left', '32px')
-			.should('have.css', 'padding-right', '32px')
+			.and('have.css', 'padding-right', '32px')
 			.and('have.css', 'padding-top', '14px')
 			.and('have.css', 'padding-bottom', '14px')
 			.and('have.css', 'font-size', '18px')
@@ -46,12 +46,14 @@ export class __ButtonDriver__ {
 
 	private assertSolidVariant() {
 		cy.get(this.buttonClassBase)
-			.and('have.css', 'color', toRgbString('#ffffff'))
+			.should('have.css', 'color', toRgbString('#ffffff'))
 			.and('have.css', 'border-color', toRgbString('transparent'))
 	}
 
 	private assertOutlinedVariant() {
-		cy.get(this.buttonClassBase).should('have.css', 'border-width', '1px')
+		cy.get(this.buttonClassBase)
+			.should('have.css', 'border-width', '2px')
+			.and('have.css', 'background-color', toRgbString('transparent'))
 	}
 
 	assertSolidVariantAndMainColor() {
@@ -82,5 +84,17 @@ export class __ButtonDriver__ {
 		cy.get(this.buttonClassBase)
 			.should('have.css', 'border-color', toRgbString(theme.colors.main[500]))
 			.and('have.css', 'color', toRgbString(theme.colors.main[500]))
+
+		// the real events library doesn't work on firefox
+		if (this.isFirefox) return
+
+		cy.get(this.buttonClassBase).realHover()
+		cy.get(this.buttonClassBase)
+			.should(
+				'have.css',
+				'border',
+				`2px solid ${toRgbString(theme.colors.main[700])}`
+			)
+			.and('have.css', 'color', toRgbString(theme.colors.main[800]))
 	}
 }

@@ -99,6 +99,7 @@
 }
 
 .hiperion-btn {
+  box-sizing: border-box;
   cursor: pointer;
   border-radius: 100px;
 }
@@ -139,16 +140,24 @@
 }
 
 .hiperion-btn-outlined {
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
   background-color: transparent;
 }
 
 .hiperion-btn-outlined-main {
+  transition: border-color 150ms linear, border-width 150ms linear, color 150ms linear;
   --tw-border-opacity: 1;
   border-color: rgb(89 132 192 / var(--tw-border-opacity));
   --tw-text-opacity: 1;
   color: rgb(89 132 192 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-outlined-main:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(47 98 170 / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(24 80 158 / var(--tw-text-opacity));
 }
 
 .hiperion-btn-outlined-secondary {
