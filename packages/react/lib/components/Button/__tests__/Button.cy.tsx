@@ -18,11 +18,11 @@ describe('<Button />', () => {
 		cy.mount(<Button>Button</Button>)
 
 		driver.assertImageSnapshot('default-button')
-		driver.assertSolidMainBigButtonClass()
+		driver.solid.assertMainColorAndBigSizeClass()
 
 		driver.assertCommonStyles()
-		driver.assertBigSizeStyles()
-		driver.assertSolidVariantAndMainColorStyles()
+		driver.size.assertBig()
+		driver.solid.assertMainColor()
 
 		cy.get(driver.buttonClassBase).should('have.text', 'Button')
 	})
@@ -39,11 +39,11 @@ describe('<Button />', () => {
 
 			cy.mount(<Button {...props}>Button</Button>)
 
-			driver.assertSolidMainBigButtonClass()
+			driver.solid.assertMainColorAndBigSizeClass()
 
 			driver.assertCommonStyles()
-			driver.assertBigSizeStyles()
-			driver.assertSolidVariantAndMainColorStyles()
+			driver.size.assertBig()
+			driver.solid.assertMainColor()
 			cy.get(driver.buttonClassBase).and('have.text', 'Button')
 		})
 
@@ -81,11 +81,11 @@ describe('<Button />', () => {
 			cy.mount(<Button {...props}>Button</Button>)
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
-			driver.assertOutlinedMainBigButtonClass()
+			driver.outlined.assertMainColorAndBigSizeClass()
 
 			driver.assertCommonStyles()
-			driver.assertBigSizeStyles()
-			driver.assertOutlinedVariantAndMainColorStyles()
+			driver.size.assertBig()
+			driver.outlined.assertMainColor()
 			cy.get(driver.buttonClassBase).and('have.text', 'Button')
 		})
 	})
@@ -102,7 +102,7 @@ describe('<Button />', () => {
 
 			cy.mount(<Button size='big'>Button</Button>)
 
-			driver.assertBigSizeStyles()
+			driver.size.assertBig()
 		})
 
 		it('should render medium button', () => {
@@ -115,7 +115,7 @@ describe('<Button />', () => {
 			cy.mount(<Button size='medium'>Button</Button>)
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
-			driver.assertMediumSize()
+			driver.size.assertMedium()
 		})
 
 		it('should render small button', () => {
@@ -128,7 +128,7 @@ describe('<Button />', () => {
 			cy.mount(<Button size='small'>Button</Button>)
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
-			driver.assertSmallSize()
+			driver.size.assertSmall()
 		})
 	})
 })
