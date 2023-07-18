@@ -45,8 +45,8 @@ describe('<Button />', () => {
 			.and('have.text', 'Button')
 	})
 
-	describe('Main Color', () => {
-		it('should render solid button with correct styles', () => {
+	describe('Solid', () => {
+		it('should render main solid button with correct styles', () => {
 			const props = {
 				variant: 'solid',
 				colorScheme: 'main',
@@ -65,7 +65,28 @@ describe('<Button />', () => {
 			cy.get(driver.buttonClassBase).and('have.text', 'Button')
 		})
 
-		it('should render outlined button with correct styles', () => {
+		it('should render secondary solid button with correct styles', () => {
+			const props = {
+				variant: 'solid',
+				colorScheme: 'secondary',
+				size: 'big',
+			} satisfies ButtonVariantProps
+
+			const driver = new ButtonDriver(props)
+
+			cy.mount(<Button {...props}>Button</Button>)
+
+			driver.solid.assertSecondaryColorAndBigSizeClass()
+
+			driver.assertCommonStyles()
+			driver.size.assertBig()
+			driver.solid.assertSecondaryColor()
+			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+		})
+	})
+
+	describe('Outlined', () => {
+		it('should render main outlined button with correct styles', () => {
 			const props = {
 				variant: 'outlined',
 				colorScheme: 'main',
@@ -84,29 +105,8 @@ describe('<Button />', () => {
 			driver.outlined.assertMainColor()
 			cy.get(driver.buttonClassBase).and('have.text', 'Button')
 		})
-	})
 
-	describe('Secondary Color', () => {
-		it('should render solid button with correct styles', () => {
-			const props = {
-				variant: 'solid',
-				colorScheme: 'secondary',
-				size: 'big',
-			} satisfies ButtonVariantProps
-
-			const driver = new ButtonDriver(props)
-
-			cy.mount(<Button {...props}>Button</Button>)
-
-			driver.solid.assertSecondaryColorAndBigSizeClass()
-
-			driver.assertCommonStyles()
-			driver.size.assertBig()
-			driver.solid.assertSecondaryColor()
-			cy.get(driver.buttonClassBase).and('have.text', 'Button')
-		})
-
-		it('should render outlined button with correct styles', () => {
+		it('should render secondary outlined button with correct styles', () => {
 			const props = {
 				variant: 'outlined',
 				colorScheme: 'secondary',
