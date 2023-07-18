@@ -248,7 +248,7 @@ function button() {
             "@apply bg-main-500 hover:bg-main-600 hover:border-main-100": {}
           },
           "&-secondary": {
-            "@apply bg-secondary-500": {}
+            "@apply bg-secondary-500 hover:bg-secondary-600 hover:border-secondary-100": {}
           }
         },
         "btn-outlined": {
@@ -258,7 +258,7 @@ function button() {
             "@apply border-main-500 text-main-500 hover:border-main-700 hover:text-main-800": {}
           },
           "&-secondary": {
-            "@apply border-secondary-500 text-secondary-500": {}
+            "@apply border-secondary-500 text-secondary-500 hover:border-secondary-700 hover:text-secondary-800": {}
           }
         },
         "btn-big": {

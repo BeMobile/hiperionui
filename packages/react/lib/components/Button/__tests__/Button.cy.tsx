@@ -27,6 +27,24 @@ describe('<Button />', () => {
 		cy.get(driver.buttonClassBase).should('have.text', 'Button')
 	})
 
+	it('should render disabled solid button with correct styles', () => {
+		const driver = new ButtonDriver({
+			variant: 'solid',
+			colorScheme: 'main',
+			size: 'big',
+		})
+
+		cy.mount(<Button disabled>Button</Button>)
+
+		driver.assertImageSnapshot('disabled')
+
+		cy.get(driver.buttonClassBase)
+			.should('have.css', 'cursor', 'not-allowed')
+			.and('have.css', 'border-radius', theme.borderRadius.pill)
+			.and('have.css', 'background-color', toRgbString(theme.colors.gray[400]))
+			.and('have.text', 'Button')
+	})
+
 	describe('Main Color', () => {
 		it('should render solid button with correct styles', () => {
 			const props = {
@@ -45,28 +63,6 @@ describe('<Button />', () => {
 			driver.size.assertBig()
 			driver.solid.assertMainColor()
 			cy.get(driver.buttonClassBase).and('have.text', 'Button')
-		})
-
-		it('should render disabled solid button with correct styles', () => {
-			const driver = new ButtonDriver({
-				variant: 'solid',
-				colorScheme: 'main',
-				size: 'big',
-			})
-
-			cy.mount(<Button disabled>Button</Button>)
-
-			driver.assertImageSnapshot('disabled')
-
-			cy.get(driver.buttonClassBase)
-				.should('have.css', 'cursor', 'not-allowed')
-				.and('have.css', 'border-radius', theme.borderRadius.pill)
-				.and(
-					'have.css',
-					'background-color',
-					toRgbString(theme.colors.gray[400])
-				)
-				.and('have.text', 'Button')
 		})
 
 		it('should render outlined button with correct styles', () => {
@@ -90,7 +86,46 @@ describe('<Button />', () => {
 		})
 	})
 
-	// describe('Secondary Color', () => {})
+	describe('Secondary Color', () => {
+		it('should render solid button with correct styles', () => {
+			const props = {
+				variant: 'solid',
+				colorScheme: 'secondary',
+				size: 'big',
+			} satisfies ButtonVariantProps
+
+			const driver = new ButtonDriver(props)
+
+			cy.mount(<Button {...props}>Button</Button>)
+
+			driver.solid.assertSecondaryColorAndBigSizeClass()
+
+			driver.assertCommonStyles()
+			driver.size.assertBig()
+			driver.solid.assertSecondaryColor()
+			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+		})
+
+		it('should render outlined button with correct styles', () => {
+			const props = {
+				variant: 'outlined',
+				colorScheme: 'secondary',
+				size: 'big',
+			} satisfies ButtonVariantProps
+
+			const driver = new ButtonDriver(props)
+
+			cy.mount(<Button {...props}>Button</Button>)
+
+			driver.assertImageSnapshot(snapshotTitlePrefix)
+			driver.outlined.assertSecondaryColorAndBigSizeClass()
+
+			driver.assertCommonStyles()
+			driver.size.assertBig()
+			driver.outlined.assertSecondaryColor()
+			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+		})
+	})
 
 	describe('Size', () => {
 		it('should render big button', () => {

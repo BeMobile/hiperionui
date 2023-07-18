@@ -22,7 +22,8 @@ export function button() {
 					},
 
 					'&-secondary': {
-						/*tw*/ '@apply bg-secondary-500': {},
+						/*tw*/ '@apply bg-secondary-500 hover:bg-secondary-600 hover:border-secondary-100':
+							{},
 					},
 				},
 
@@ -36,7 +37,8 @@ export function button() {
 					},
 
 					'&-secondary': {
-						/*tw*/ '@apply border-secondary-500 text-secondary-500': {},
+						/*tw*/ '@apply border-secondary-500 text-secondary-500 hover:border-secondary-700 hover:text-secondary-800':
+							{},
 					},
 				},
 

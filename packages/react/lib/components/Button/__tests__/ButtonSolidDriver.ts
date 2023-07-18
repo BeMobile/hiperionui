@@ -56,4 +56,39 @@ export class ButtonSolidDriver {
 			.and('have.class', ButtonClass.BIG)
 			.and('not.have.class', ButtonClass.OUTLINED)
 	}
+
+	assertSecondaryColor() {
+		this.assertVariant()
+
+		cy.get(this.buttonClassBase).should(
+			'have.css',
+			'background-color',
+			toRgbString(theme.colors.secondary[500])
+		)
+
+		// the real events library doesn't work on firefox
+		if (this.isFirefox) return
+
+		cy.get(this.buttonClassBase).realHover()
+		cy.get(this.buttonClassBase)
+			.should(
+				'have.css',
+				'border',
+				`3px solid ${toRgbString(theme.colors.secondary[100])}`
+			)
+			.and(
+				'have.css',
+				'background-color',
+				toRgbString(theme.colors.secondary[600])
+			)
+	}
+
+	assertSecondaryColorAndBigSizeClass() {
+		cy.get(this.buttonClassBase)
+			.and('have.class', ButtonClass.BASE)
+			.and('have.class', ButtonClass.SOLID)
+			.and('have.class', ButtonClass.SOLID_SECONDARY)
+			.and('have.class', ButtonClass.BIG)
+			.and('not.have.class', ButtonClass.OUTLINED)
+	}
 }
