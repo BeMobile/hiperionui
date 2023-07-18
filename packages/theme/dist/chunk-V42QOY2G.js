@@ -25,13 +25,12 @@ function button() {
           }
         },
         "btn-outlined": {
-          "@apply bg-transparent border-solid border-2": {},
+          "@apply bg-transparent border-solid border-2 transition-colors": {},
           "&-main": {
-            transition: `border-color ${defaultHoverDuration} linear, border-width ${defaultHoverDuration} linear, color ${defaultHoverDuration} linear`,
-            "@apply border-main-500 text-main-500 hover:border-main-700 hover:text-main-800": {}
+            "@apply border-main-500 text-main-500 hover:bg-main-500 hover:text-white": {}
           },
           "&-secondary": {
-            "@apply border-secondary-500 text-secondary-500 hover:border-secondary-700 hover:text-secondary-800": {}
+            "@apply border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white": {}
           }
         },
         "btn-big": {

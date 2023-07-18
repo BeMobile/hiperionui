@@ -28,16 +28,16 @@ export function button() {
 				},
 
 				'btn-outlined': {
-					/*tw*/ '@apply bg-transparent border-solid border-2': {},
+					/*tw*/ '@apply bg-transparent border-solid border-2 transition-colors':
+						{},
 
 					'&-main': {
-						transition: `border-color ${defaultHoverDuration} linear, border-width ${defaultHoverDuration} linear, color ${defaultHoverDuration} linear`,
-						/*tw*/ '@apply border-main-500 text-main-500 hover:border-main-700 hover:text-main-800':
+						/*tw*/ '@apply border-main-500 text-main-500 hover:bg-main-500 hover:text-white':
 							{},
 					},
 
 					'&-secondary': {
-						/*tw*/ '@apply border-secondary-500 text-secondary-500 hover:border-secondary-700 hover:text-secondary-800':
+						/*tw*/ '@apply border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white':
 							{},
 					},
 				},

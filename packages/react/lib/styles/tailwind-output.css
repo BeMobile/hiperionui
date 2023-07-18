@@ -150,10 +150,12 @@
   border-width: 2px;
   border-style: solid;
   background-color: transparent;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .hiperion-btn-outlined-main {
-  transition: border-color 150ms linear, border-width 150ms linear, color 150ms linear;
   --tw-border-opacity: 1;
   border-color: rgb(89 132 192 / var(--tw-border-opacity));
   --tw-text-opacity: 1;
@@ -161,10 +163,10 @@
 }
 
 .hiperion-btn-outlined-main:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(47 98 170 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 132 192 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(24 80 158 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .hiperion-btn-outlined-secondary {
@@ -175,10 +177,10 @@
 }
 
 .hiperion-btn-outlined-secondary:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(101 71 155 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(118 93 163 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(95 64 149 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .hiperion-btn-big {

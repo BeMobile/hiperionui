@@ -40,10 +40,10 @@ export class ButtonOutlinedDriver {
 		cy.get(this.buttonClassBase)
 			.should(
 				'have.css',
-				'border',
-				`2px solid ${toRgbString(theme.colors.main[700])}`
+				'background-color',
+				toRgbString(theme.colors.main[500])
 			)
-			.and('have.css', 'color', toRgbString(theme.colors.main[800]))
+			.and('have.css', 'color', toRgbString('#fff'))
 	}
 
 	assertMainColorAndBigSizeClass() {
@@ -73,10 +73,10 @@ export class ButtonOutlinedDriver {
 		cy.get(this.buttonClassBase)
 			.should(
 				'have.css',
-				'border',
-				`2px solid ${toRgbString(theme.colors.secondary[700])}`
+				'background-color',
+				toRgbString(theme.colors.secondary[500])
 			)
-			.and('have.css', 'color', toRgbString(theme.colors.secondary[800]))
+			.and('have.css', 'color', toRgbString('#fff'))
 	}
 
 	assertSecondaryColorAndBigSizeClass() {
