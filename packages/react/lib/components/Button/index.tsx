@@ -82,7 +82,7 @@ export type ButtonProps = DefaultButton | ButtonAsChild
  *
  * We have at total three sizes: big, medium ,small
  *
- * By default, the button has big size
+ * By default, the button has medium size
  *
  * ## Big
  *
@@ -103,7 +103,7 @@ export function Button({
 	children,
 	colorScheme = 'main',
 	asChild,
-	size = 'big',
+	size = 'medium',
 	...props
 }: ButtonProps) {
 	const Children = asChild ? (

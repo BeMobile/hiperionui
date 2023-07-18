@@ -57,6 +57,15 @@ export class ButtonSolidDriver {
 			.and('not.have.class', ButtonClass.OUTLINED)
 	}
 
+	assertMainColorAndMediumSizeClass() {
+		cy.get(this.buttonClassBase)
+			.and('have.class', ButtonClass.BASE)
+			.and('have.class', ButtonClass.SOLID)
+			.and('have.class', ButtonClass.SOLID_MAIN)
+			.and('have.class', ButtonClass.MEDIUM)
+			.and('not.have.class', ButtonClass.OUTLINED)
+	}
+
 	assertSecondaryColor() {
 		this.assertVariant()
 

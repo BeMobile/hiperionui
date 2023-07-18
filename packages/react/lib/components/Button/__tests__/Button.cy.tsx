@@ -8,20 +8,20 @@ import { ButtonDriver } from './ButtonDriver'
 const snapshotTitlePrefix = 'match-props'
 
 describe('<Button />', () => {
-	it('should render default button with correct styles (solid variant, main color and big size)', () => {
+	it('should render default button with correct styles (solid variant, main color and medium size)', () => {
 		const driver = new ButtonDriver({
 			variant: 'solid',
 			colorScheme: 'main',
-			size: 'big',
+			size: 'medium',
 		})
 
 		cy.mount(<Button>Button</Button>)
 
 		driver.assertImageSnapshot('default-button')
-		driver.solid.assertMainColorAndBigSizeClass()
+		driver.solid.assertMainColorAndMediumSizeClass()
 
 		driver.assertCommonStyles()
-		driver.size.assertBig()
+		driver.size.assertMedium()
 		driver.solid.assertMainColor()
 
 		cy.get(driver.buttonClassBase).should('have.text', 'Button')
@@ -31,7 +31,7 @@ describe('<Button />', () => {
 		const driver = new ButtonDriver({
 			variant: 'solid',
 			colorScheme: 'main',
-			size: 'big',
+			size: 'medium',
 		})
 
 		cy.mount(<Button disabled>Button</Button>)
