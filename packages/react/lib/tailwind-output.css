@@ -99,13 +99,27 @@
 }
 
 .hiperion-btn {
+  box-sizing: border-box;
   cursor: pointer;
   border-radius: 100px;
 }
 
 .hiperion-btn-solid {
+  border-width: 3px;
+  border-style: solid;
+  border-color: transparent;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-solid:disabled {
+  cursor: not-allowed;
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 224 224 / var(--tw-bg-opacity));
+}
+
+.hiperion-btn-solid {
+  transition: background 150ms linear, color 150ms linear, border-color 150ms ease-in-out;
 }
 
 .hiperion-btn-solid-main {
@@ -113,15 +127,32 @@
   background-color: rgb(89 132 192 / var(--tw-bg-opacity));
 }
 
+.hiperion-btn-solid-main:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(178 206 245 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(66 115 183 / var(--tw-bg-opacity));
+}
+
 .hiperion-btn-solid-secondary {
   --tw-bg-opacity: 1;
   background-color: rgb(118 93 163 / var(--tw-bg-opacity));
+}
+
+.hiperion-btn-solid-secondary:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(196 161 255 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(108 80 158 / var(--tw-bg-opacity));
 }
 
 .hiperion-btn-outlined {
   border-width: 2px;
   border-style: solid;
   background-color: transparent;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .hiperion-btn-outlined-main {
@@ -131,6 +162,13 @@
   color: rgb(89 132 192 / var(--tw-text-opacity));
 }
 
+.hiperion-btn-outlined-main:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 132 192 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .hiperion-btn-outlined-secondary {
   --tw-border-opacity: 1;
   border-color: rgb(118 93 163 / var(--tw-border-opacity));
@@ -138,7 +176,85 @@
   color: rgb(118 93 163 / var(--tw-text-opacity));
 }
 
+.hiperion-btn-outlined-secondary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(118 93 163 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-ghost {
+  background-color: transparent;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.hiperion-btn-ghost-main {
+  --tw-text-opacity: 1;
+  color: rgb(89 132 192 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-ghost-main:hover {
+  --tw-text-opacity: 1;
+  color: rgb(66 115 183 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-ghost-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(118 93 163 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-ghost-secondary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(108 80 158 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-big {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  line-height: 19.2px;
+}
+
+.hiperion-btn-medium {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  line-height: 19.2px;
+}
+
+.hiperion-btn-small {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.bg-black-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 74 74 / var(--tw-bg-opacity));
+}
+
 button {
   all: unset;
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
