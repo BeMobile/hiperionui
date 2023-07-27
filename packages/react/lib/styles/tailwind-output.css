@@ -183,6 +183,33 @@
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.hiperion-btn-ghost {
+  background-color: transparent;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.hiperion-btn-ghost-main {
+  --tw-text-opacity: 1;
+  color: rgb(89 132 192 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-ghost-main:hover {
+  --tw-text-opacity: 1;
+  color: rgb(66 115 183 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-ghost-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(118 93 163 / var(--tw-text-opacity));
+}
+
+.hiperion-btn-ghost-secondary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(108 80 158 / var(--tw-text-opacity));
+}
+
 .hiperion-btn-big {
   padding-left: 2.5rem;
   padding-right: 2.5rem;

@@ -9,6 +9,7 @@ const buttonStyles = cva(['hiperion-btn'], {
 		variant: {
 			solid: 'hiperion-btn-solid',
 			outlined: 'hiperion-btn-outlined',
+			ghost: 'hiperion-btn-ghost',
 		},
 		colorScheme: {
 			main: {},
@@ -40,6 +41,16 @@ const buttonStyles = cva(['hiperion-btn'], {
 			variant: 'solid',
 			colorScheme: 'secondary',
 			className: 'hiperion-btn-solid-secondary',
+		},
+		{
+			variant: 'ghost',
+			colorScheme: 'main',
+			className: 'hiperion-btn-ghost-main',
+		},
+		{
+			variant: 'ghost',
+			colorScheme: 'secondary',
+			className: 'hiperion-btn-ghost-secondary',
 		},
 	],
 })

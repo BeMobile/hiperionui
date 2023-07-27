@@ -42,6 +42,18 @@ export function button() {
 					},
 				},
 
+				'btn-ghost': {
+					/*tw*/ '@apply bg-transparent transition-colors': {},
+
+					'&-main': {
+						/*tw*/ '@apply text-main-500 hover:text-main-600': {},
+					},
+
+					'&-secondary': {
+						/*tw*/ '@apply text-secondary-500 hover:text-secondary-600': {},
+					},
+				},
+
 				'btn-big': {
 					/*tw*/ '@apply px-10 py-[14px] text-lg font-medium leading-[19.2px]':
 						{},

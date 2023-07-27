@@ -76,6 +76,15 @@ function button() {
             "@apply border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white": {}
           }
         },
+        "btn-ghost": {
+          "@apply bg-transparent transition-colors": {},
+          "&-main": {
+            "@apply text-main-500 hover:text-main-600": {}
+          },
+          "&-secondary": {
+            "@apply text-secondary-500 hover:text-secondary-600": {}
+          }
+        },
         "btn-big": {
           "@apply px-10 py-[14px] text-lg font-medium leading-[19.2px]": {}
         },

@@ -115,6 +115,41 @@ describe('<Button />', () => {
 		})
 	})
 
+	describe('Ghost', () => {
+		it('should render main ghost button with correct styles', () => {
+			const props = {
+				variant: 'ghost',
+				colorScheme: 'main',
+				size: 'big',
+			} satisfies ButtonVariantProps
+
+			const driver = new ButtonDriver(props)
+
+			cy.mount(<Button {...props}>Button</Button>)
+
+			driver.assertImageSnapshot(snapshotTitlePrefix)
+
+			driver.ghost.assertMainColorHover()
+			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+		})
+
+		it('should render secondary ghost button with correct styles', () => {
+			const props = {
+				variant: 'ghost',
+				colorScheme: 'secondary',
+				size: 'big',
+			} satisfies ButtonVariantProps
+
+			const driver = new ButtonDriver(props)
+
+			cy.mount(<Button {...props}>Button</Button>)
+
+			driver.assertImageSnapshot(snapshotTitlePrefix)
+			driver.ghost.assertSecondaryColorHover()
+			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+		})
+	})
+
 	describe('Size', () => {
 		it('should render big button', () => {
 			const props = {
