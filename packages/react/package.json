@@ -27,7 +27,6 @@
 	"dependencies": {
 		"@be-kit/style-utils": "^0.0.1",
 		"@hiperionui/theme": "workspace:*",
-		"@istanbuljs/nyc-config-typescript": "^1.0.2",
 		"class-variance-authority": "^0.6.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
@@ -37,6 +36,7 @@
 		"@be-kit/vite-config": "^0.1.0",
 		"@cypress/code-coverage": "^3.10.9",
 		"@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
+		"@istanbuljs/nyc-config-typescript": "^1.0.2",
 		"@types/cypress__code-coverage": "^3.10.0",
 		"@types/react": "^18.0.26",
 		"@types/react-dom": "^18.0.9",
