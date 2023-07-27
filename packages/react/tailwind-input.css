@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 button {
-  all: unset;
-  font-family: 'Roboto', sans-serif;
+	all: unset;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
 }
