@@ -9,6 +9,7 @@
 		"**/*.cy.tsx",
 		"**/*.cy.ts",
 		"lib/styles/**.*",
-		"lib/test/**.*"
+		"lib/test/**.*",
+		"lib/components/**/__tests__"
 	]
 }
