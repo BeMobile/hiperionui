@@ -1,4 +1,5 @@
 import { Button, ButtonVariantProps } from '@/lib'
+import { ButtonClass } from '@/lib/test/constants'
 import { toRgbString } from '@/lib/test/util'
 import { theme } from '@hiperionui/theme'
 
@@ -44,6 +45,21 @@ describe('<Button />', () => {
 		cy.mount(<Button className='bg-black-100'>Button</Button>)
 
 		cy.get('button').should('have.css', 'background-color', 'rgb(75, 74, 74)')
+	})
+
+	it('should render button as child', () => {
+		cy.mount(
+			<Button asChild className='bg-black-100'>
+				<a href='#1' className='as-child'>
+					Button
+				</a>
+			</Button>
+		)
+
+		cy.get(`.${ButtonClass.BASE}`)
+			.should('have.css', 'background-color', 'rgb(75, 74, 74)')
+			.and('have.class', 'as-child')
+			.and('have.attr', 'href', '#1')
 	})
 
 	describe('Solid', () => {
