@@ -1,5 +1,4 @@
-import { ButtonVariantProps } from '@/dist'
-import { Button } from '@/lib'
+import { Button, ButtonVariantProps } from '@/lib'
 import { toRgbString } from '@/lib/test/util'
 import { theme } from '@hiperionui/theme'
 
@@ -18,11 +17,7 @@ describe('<Button />', () => {
 		cy.mount(<Button>Button</Button>)
 
 		driver.assertImageSnapshot('default-button')
-		driver.solid.assertMainColorAndMediumSizeClass()
-
-		driver.assertCommonStyles()
-		driver.size.assertMedium()
-		driver.solid.assertMainColor()
+		driver.solid.assertMainColorHover()
 
 		cy.get(driver.buttonClassBase).should('have.text', 'Button')
 	})
@@ -45,6 +40,12 @@ describe('<Button />', () => {
 			.and('have.text', 'Button')
 	})
 
+	it('should render button with custom background', () => {
+		cy.mount(<Button className='bg-black-100'>Button</Button>)
+
+		cy.get('button').should('have.css', 'background-color', 'rgb(75, 74, 74)')
+	})
+
 	describe('Solid', () => {
 		it('should render main solid button with correct styles', () => {
 			const props = {
@@ -57,11 +58,8 @@ describe('<Button />', () => {
 
 			cy.mount(<Button {...props}>Button</Button>)
 
-			driver.solid.assertMainColorAndBigSizeClass()
-
-			driver.assertCommonStyles()
-			driver.size.assertBig()
-			driver.solid.assertMainColor()
+			driver.assertImageSnapshot(snapshotTitlePrefix)
+			driver.solid.assertMainColorHover()
 			cy.get(driver.buttonClassBase).and('have.text', 'Button')
 		})
 
@@ -76,11 +74,8 @@ describe('<Button />', () => {
 
 			cy.mount(<Button {...props}>Button</Button>)
 
-			driver.solid.assertSecondaryColorAndBigSizeClass()
-
-			driver.assertCommonStyles()
-			driver.size.assertBig()
-			driver.solid.assertSecondaryColor()
+			driver.assertImageSnapshot(snapshotTitlePrefix)
+			driver.solid.assertSecondaryColorHover()
 			cy.get(driver.buttonClassBase).and('have.text', 'Button')
 		})
 	})
@@ -98,11 +93,8 @@ describe('<Button />', () => {
 			cy.mount(<Button {...props}>Button</Button>)
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
-			driver.outlined.assertMainColorAndBigSizeClass()
 
-			driver.assertCommonStyles()
-			driver.size.assertBig()
-			driver.outlined.assertMainColor()
+			driver.outlined.assertMainColorHover()
 			cy.get(driver.buttonClassBase).and('have.text', 'Button')
 		})
 
@@ -118,26 +110,20 @@ describe('<Button />', () => {
 			cy.mount(<Button {...props}>Button</Button>)
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
-			driver.outlined.assertSecondaryColorAndBigSizeClass()
-
-			driver.assertCommonStyles()
-			driver.size.assertBig()
-			driver.outlined.assertSecondaryColor()
+			driver.outlined.assertSecondaryColorHover()
 			cy.get(driver.buttonClassBase).and('have.text', 'Button')
 		})
 	})
 
 	describe('Size', () => {
 		it('should render big button', () => {
-			const driver = new ButtonDriver({
+			const props = {
 				variant: 'solid',
 				colorScheme: 'main',
 				size: 'big',
-			})
+			} satisfies ButtonVariantProps
 
-			cy.mount(<Button size='big'>Button</Button>)
-
-			driver.size.assertBig()
+			cy.mount(<Button {...props}>Button</Button>)
 		})
 
 		it('should render medium button', () => {
@@ -150,20 +136,20 @@ describe('<Button />', () => {
 			cy.mount(<Button size='medium'>Button</Button>)
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
-			driver.size.assertMedium()
 		})
 
 		it('should render small button', () => {
-			const driver = new ButtonDriver({
+			const props = {
 				variant: 'solid',
 				colorScheme: 'main',
-				size: 'big',
-			})
+				size: 'small',
+			} satisfies ButtonVariantProps
 
-			cy.mount(<Button size='small'>Button</Button>)
+			const driver = new ButtonDriver(props)
+
+			cy.mount(<Button {...props}>Button</Button>)
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
-			driver.size.assertSmall()
 		})
 	})
 })

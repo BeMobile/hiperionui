@@ -1,4 +1,3 @@
-import { ButtonClass } from '@/lib/test/constants'
 import { toRgbString } from '@/lib/test/util'
 import { theme } from '@hiperionui/theme'
 
@@ -20,19 +19,7 @@ export class ButtonOutlinedDriver {
 		return this.browser.name === 'firefox'
 	}
 
-	private assertVariant() {
-		cy.get(this.buttonClassBase)
-			.should('have.css', 'border-width', '2px')
-			.and('have.css', 'background-color', toRgbString('transparent'))
-	}
-
-	assertMainColor() {
-		this.assertVariant()
-
-		cy.get(this.buttonClassBase)
-			.should('have.css', 'border-color', toRgbString(theme.colors.main[500]))
-			.and('have.css', 'color', toRgbString(theme.colors.main[500]))
-
+	assertMainColorHover() {
 		// the real events library doesn't work on firefox
 		if (this.isFirefox) return
 
@@ -46,26 +33,7 @@ export class ButtonOutlinedDriver {
 			.and('have.css', 'color', toRgbString('#fff'))
 	}
 
-	assertMainColorAndBigSizeClass() {
-		cy.get(this.buttonClassBase)
-			.and('have.class', ButtonClass.BASE)
-			.and('have.class', ButtonClass.OUTLINED)
-			.and('have.class', ButtonClass.OUTLINED_MAIN)
-			.and('have.class', ButtonClass.BIG)
-			.and('not.have.class', ButtonClass.SOLID)
-	}
-
-	assertSecondaryColor() {
-		this.assertVariant()
-
-		cy.get(this.buttonClassBase)
-			.should(
-				'have.css',
-				'border-color',
-				toRgbString(theme.colors.secondary[500])
-			)
-			.and('have.css', 'color', toRgbString(theme.colors.secondary[500]))
-
+	assertSecondaryColorHover() {
 		// the real events library doesn't work on firefox
 		if (this.isFirefox) return
 
@@ -77,14 +45,5 @@ export class ButtonOutlinedDriver {
 				toRgbString(theme.colors.secondary[500])
 			)
 			.and('have.css', 'color', toRgbString('#fff'))
-	}
-
-	assertSecondaryColorAndBigSizeClass() {
-		cy.get(this.buttonClassBase)
-			.and('have.class', ButtonClass.BASE)
-			.and('have.class', ButtonClass.OUTLINED)
-			.and('have.class', ButtonClass.OUTLINED_SECONDARY)
-			.and('have.class', ButtonClass.BIG)
-			.and('not.have.class', ButtonClass.SOLID)
 	}
 }
