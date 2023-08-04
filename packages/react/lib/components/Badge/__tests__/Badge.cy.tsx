@@ -1,4 +1,9 @@
+import { BadgeClass } from '@/lib/test/constants'
+import { toRgbString } from '@/lib/test/util'
+
 import { Badge, BadgeVariantProps } from '..'
+
+import { theme } from '@hiperionui/theme'
 
 import { BadgeDriver } from './BadgeDriver'
 
@@ -15,10 +20,10 @@ describe('<Badge />', () => {
 
 			cy.mount(<Badge {...props}>1</Badge>)
 			cy.contains('1')
-				.should('have.class', 'hiperion-badge')
-				.and('have.class', 'hiperion-badge-gray')
-				.and('have.class', 'hiperion-badge-big')
-				.and('not.have.class', 'hiperion-badge-outlined')
+				.should('have.class', BadgeClass.BASE)
+				.and('have.class', BadgeClass.GRAY)
+				.and('have.class', BadgeClass.BIG)
+				.and('not.have.class', BadgeClass.OUTLINED)
 			driver.assertImageSnapshot()
 		})
 
@@ -33,10 +38,10 @@ describe('<Badge />', () => {
 
 			cy.mount(<Badge {...props}>1</Badge>)
 			cy.contains('1')
-				.should('have.class', 'hiperion-badge')
-				.and('have.class', 'hiperion-badge-gray')
-				.and('have.class', 'hiperion-badge-big')
-				.and('have.class', 'hiperion-badge-outlined')
+				.should('have.class', BadgeClass.BASE)
+				.and('have.class', BadgeClass.GRAY)
+				.and('have.class', BadgeClass.BIG)
+				.and('have.class', BadgeClass.OUTLINED)
 			driver.assertImageSnapshot()
 		})
 	})
@@ -51,10 +56,10 @@ describe('<Badge />', () => {
 
 			cy.mount(<Badge {...props}>1</Badge>)
 			cy.contains('1')
-				.should('have.class', 'hiperion-badge')
-				.and('have.class', 'hiperion-badge-gray')
-				.and('have.class', 'hiperion-badge-big')
-				.and('not.have.class', 'hiperion-badge-outlined')
+				.should('have.class', BadgeClass.BASE)
+				.and('have.class', BadgeClass.GRAY)
+				.and('have.class', BadgeClass.BIG)
+				.and('not.have.class', BadgeClass.OUTLINED)
 		})
 
 		it('should render red color', () => {
@@ -68,10 +73,10 @@ describe('<Badge />', () => {
 
 			cy.mount(<Badge {...props}>1</Badge>)
 			cy.contains('1')
-				.should('have.class', 'hiperion-badge')
-				.and('have.class', 'hiperion-badge-red')
-				.and('have.class', 'hiperion-badge-big')
-				.and('not.have.class', 'hiperion-badge-outlined')
+				.should('have.class', BadgeClass.BASE)
+				.and('have.class', BadgeClass.RED)
+				.and('have.class', BadgeClass.BIG)
+				.and('not.have.class', BadgeClass.OUTLINED)
 			driver.assertImageSnapshot()
 		})
 
@@ -86,10 +91,10 @@ describe('<Badge />', () => {
 
 			cy.mount(<Badge {...props}>1</Badge>)
 			cy.contains('1')
-				.should('have.class', 'hiperion-badge')
-				.and('have.class', 'hiperion-badge-orange')
-				.and('have.class', 'hiperion-badge-big')
-				.and('not.have.class', 'hiperion-badge-outlined')
+				.should('have.class', BadgeClass.BASE)
+				.and('have.class', BadgeClass.ORANGE)
+				.and('have.class', BadgeClass.BIG)
+				.and('not.have.class', BadgeClass.OUTLINED)
 			driver.assertImageSnapshot()
 		})
 
@@ -104,13 +109,14 @@ describe('<Badge />', () => {
 
 			cy.mount(<Badge {...props}>1</Badge>)
 			cy.contains('1')
-				.should('have.class', 'hiperion-badge')
-				.and('have.class', 'hiperion-badge-green')
-				.and('have.class', 'hiperion-badge-big')
-				.and('not.have.class', 'hiperion-badge-outlined')
+				.should('have.class', BadgeClass.BASE)
+				.and('have.class', BadgeClass.GREEN)
+				.and('have.class', BadgeClass.BIG)
+				.and('not.have.class', BadgeClass.OUTLINED)
 			driver.assertImageSnapshot()
 		})
 	})
+
 	describe('Size', () => {
 		it('should render big size', () => {
 			const props = {
@@ -121,10 +127,10 @@ describe('<Badge />', () => {
 
 			cy.mount(<Badge {...props}>1</Badge>)
 			cy.contains('1')
-				.should('have.class', 'hiperion-badge')
-				.and('have.class', 'hiperion-badge-gray')
-				.and('have.class', 'hiperion-badge-big')
-				.and('not.have.class', 'hiperion-badge-outlined')
+				.should('have.class', BadgeClass.BASE)
+				.and('have.class', BadgeClass.GRAY)
+				.and('have.class', BadgeClass.BIG)
+				.and('not.have.class', BadgeClass.OUTLINED)
 		})
 
 		it('should render medium size', () => {
@@ -138,10 +144,10 @@ describe('<Badge />', () => {
 
 			cy.mount(<Badge {...props}>1</Badge>)
 			cy.contains('1')
-				.should('have.class', 'hiperion-badge')
-				.and('have.class', 'hiperion-badge-gray')
-				.and('have.class', 'hiperion-badge-medium')
-				.and('not.have.class', 'hiperion-badge-outlined')
+				.should('have.class', BadgeClass.BASE)
+				.and('have.class', BadgeClass.GRAY)
+				.and('have.class', BadgeClass.MEDIUM)
+				.and('not.have.class', BadgeClass.OUTLINED)
 			driver.assertImageSnapshot()
 		})
 
@@ -156,11 +162,21 @@ describe('<Badge />', () => {
 
 			cy.mount(<Badge {...props}>1</Badge>)
 			cy.contains('1')
-				.should('have.class', 'hiperion-badge')
-				.and('have.class', 'hiperion-badge-gray')
-				.and('have.class', 'hiperion-badge-small')
-				.and('not.have.class', 'hiperion-badge-outlined')
+				.should('have.class', BadgeClass.BASE)
+				.and('have.class', BadgeClass.GRAY)
+				.and('have.class', BadgeClass.SMALL)
+				.and('not.have.class', BadgeClass.OUTLINED)
 			driver.assertImageSnapshot()
 		})
+	})
+
+	it('should render a badge with custom color', () => {
+		cy.mount(<Badge className='bg-black-100'>1</Badge>)
+		cy.contains('1')
+			.should('have.class', BadgeClass.BASE)
+			.and('have.class', BadgeClass.GRAY)
+			.and('have.class', BadgeClass.BIG)
+			.and('not.have.class', BadgeClass.OUTLINED)
+			.and('have.css', 'backgroundColor', toRgbString(theme.colors.black[100]))
 	})
 })

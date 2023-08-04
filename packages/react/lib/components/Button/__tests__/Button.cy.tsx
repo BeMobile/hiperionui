@@ -76,7 +76,7 @@ describe('<Button />', () => {
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
 			driver.solid.assertMainColorHover()
-			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+			cy.get(driver.buttonClassBase).should('have.text', 'Button')
 		})
 
 		it('should render secondary solid button with correct styles', () => {
@@ -92,7 +92,7 @@ describe('<Button />', () => {
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
 			driver.solid.assertSecondaryColorHover()
-			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+			cy.get(driver.buttonClassBase).should('have.text', 'Button')
 		})
 	})
 
@@ -111,7 +111,7 @@ describe('<Button />', () => {
 			driver.assertImageSnapshot(snapshotTitlePrefix)
 
 			driver.outlined.assertMainColorHover()
-			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+			cy.get(driver.buttonClassBase).should('have.text', 'Button')
 		})
 
 		it('should render secondary outlined button with correct styles', () => {
@@ -127,7 +127,7 @@ describe('<Button />', () => {
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
 			driver.outlined.assertSecondaryColorHover()
-			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+			cy.get(driver.buttonClassBase).should('have.text', 'Button')
 		})
 	})
 
@@ -146,7 +146,7 @@ describe('<Button />', () => {
 			driver.assertImageSnapshot(snapshotTitlePrefix)
 
 			driver.ghost.assertMainColorHover()
-			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+			cy.get(driver.buttonClassBase).should('have.text', 'Button')
 		})
 
 		it('should render secondary ghost button with correct styles', () => {
@@ -162,7 +162,7 @@ describe('<Button />', () => {
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
 			driver.ghost.assertSecondaryColorHover()
-			cy.get(driver.buttonClassBase).and('have.text', 'Button')
+			cy.get(driver.buttonClassBase).should('have.text', 'Button')
 		})
 	})
 
@@ -175,6 +175,11 @@ describe('<Button />', () => {
 			} satisfies ButtonVariantProps
 
 			cy.mount(<Button {...props}>Button</Button>)
+			cy.contains('Button')
+				.should('have.class', ButtonClass.BASE)
+				.and('have.class', ButtonClass.SOLID)
+				.and('have.class', ButtonClass.SOLID_MAIN)
+				.and('have.class', ButtonClass.BIG)
 		})
 
 		it('should render medium button', () => {
@@ -187,6 +192,11 @@ describe('<Button />', () => {
 			cy.mount(<Button size='medium'>Button</Button>)
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
+			cy.contains('Button')
+				.should('have.class', ButtonClass.BASE)
+				.and('have.class', ButtonClass.SOLID)
+				.and('have.class', ButtonClass.SOLID_MAIN)
+				.and('have.class', ButtonClass.MEDIUM)
 		})
 
 		it('should render small button', () => {
@@ -201,6 +211,11 @@ describe('<Button />', () => {
 			cy.mount(<Button {...props}>Button</Button>)
 
 			driver.assertImageSnapshot(snapshotTitlePrefix)
+			cy.contains('Button')
+				.should('have.class', ButtonClass.BASE)
+				.and('have.class', ButtonClass.SOLID)
+				.and('have.class', ButtonClass.SOLID_MAIN)
+				.and('have.class', ButtonClass.SMALL)
 		})
 	})
 })
