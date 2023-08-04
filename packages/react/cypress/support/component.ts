@@ -1,3 +1,4 @@
+import '@/lib/styles/tailwind-output.css'
 /* eslint-disable @typescript-eslint/no-namespace */
 import './commands'
 import '@cypress/code-coverage/support'

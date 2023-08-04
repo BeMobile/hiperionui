@@ -98,6 +98,63 @@
   --tw-backdrop-sepia:  ;
 }
 
+.hiperion-badge {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 400;
+  line-height: 1.5;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hiperion-badge-outlined {
+  border-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.hiperion-badge-gray {
+  --tw-bg-opacity: 1;
+  background-color: rgb(189 189 189 / var(--tw-bg-opacity));
+}
+
+.hiperion-badge-red {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 82 48 / var(--tw-bg-opacity));
+}
+
+.hiperion-badge-orange {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 196 0 / var(--tw-bg-opacity));
+}
+
+.hiperion-badge-green {
+  --tw-bg-opacity: 1;
+  background-color: rgb(54 179 104 / var(--tw-bg-opacity));
+}
+
+.hiperion-badge-big {
+  height: 2rem;
+  width: 2rem;
+  font-size: 18px;
+}
+
+.hiperion-badge-medium {
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 16px;
+}
+
+.hiperion-badge-small {
+  height: 1rem;
+  width: 1rem;
+  font-size: 14px;
+}
+
 .hiperion-btn {
   box-sizing: border-box;
   cursor: pointer;

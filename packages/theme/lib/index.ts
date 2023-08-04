@@ -1,19 +1,10 @@
-import * as colors from './theme/colors'
-import { borderRadius } from './theme/borderRadius'
-import { boxShadow } from './theme/boxShadow'
-import { spacing } from './theme/spacing'
+import * as components from './components'
+import * as themeConfig from './theme'
 
-import { button } from './components/button'
-
-export const theme = {
-	colors,
-	borderRadius,
-	boxShadow,
-	spacing,
-}
+export const theme = themeConfig
 
 const _plugins = {
-	button,
+	...components,
 }
 
 type Plugin = keyof typeof _plugins

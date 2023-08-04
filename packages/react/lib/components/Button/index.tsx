@@ -1,5 +1,3 @@
-import '@/lib/styles/tailwind-output.css'
-
 import { cn } from '@be-kit/style-utils'
 import { VariantProps as _VariantProps, cva } from 'class-variance-authority'
 import React from 'react'
