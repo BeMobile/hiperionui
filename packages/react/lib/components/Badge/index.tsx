@@ -39,6 +39,7 @@ export function Badge({
 }: BadgeProps) {
 	return (
 		<span
+			{...props}
 			className={cn(
 				badgeStyles({ variant, colorScheme, size }),
 				props.className
