@@ -371,8 +371,13 @@
   background-color: rgb(75 74 74 / var(--tw-bg-opacity));
 }
 
+html,
+body,
+label {
+  font-family: Roboto, sans-serif;
+}
+
 button {
   all: unset;
-  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
