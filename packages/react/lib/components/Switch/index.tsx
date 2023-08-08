@@ -1,30 +1,40 @@
 import { cn } from '@be-kit/style-utils'
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import React, { ComponentProps } from 'react'
+import React from 'react'
 
-type SwitchRootProps = ComponentProps<typeof SwitchPrimitive.Root>
+type RootProps = React.ComponentProps<typeof SwitchPrimitive.Root>
 
-function Root({ children, ...props }: SwitchRootProps) {
-	return (
-		<SwitchPrimitive.Root
-			{...props}
-			className={cn('hiperion-switch', props.className)}
-		>
-			{children}
-		</SwitchPrimitive.Root>
-	)
-}
+const Root = React.forwardRef<HTMLButtonElement, RootProps>(
+	({ children, ...props }, ref) => {
+		return (
+			<SwitchPrimitive.Root
+				ref={ref}
+				{...props}
+				className={cn('hiperion-switch', props.className)}
+			>
+				{children}
+			</SwitchPrimitive.Root>
+		)
+	}
+)
 
-type SwitchThumbProps = ComponentProps<typeof SwitchPrimitive.Thumb>
+Root.displayName = 'Root'
 
-function Thumb({ ...props }: SwitchThumbProps) {
-	return (
-		<SwitchPrimitive.Thumb
-			{...props}
-			className={cn('hiperion-switch-thumb', props.className)}
-		/>
-	)
-}
+type ThumbProps = React.ComponentProps<typeof SwitchPrimitive.Thumb>
+
+const Thumb = React.forwardRef<HTMLSpanElement, ThumbProps>(
+	({ ...props }, ref) => {
+		return (
+			<SwitchPrimitive.Thumb
+				ref={ref}
+				{...props}
+				className={cn('hiperion-switch-thumb', props.className)}
+			/>
+		)
+	}
+)
+
+Thumb.displayName = 'Thumb'
 
 function Label({
 	children,
@@ -37,12 +47,12 @@ function Label({
 	)
 }
 
-interface SwitchFullProps extends SwitchRootProps {
+interface FullProps extends RootProps {
 	label?: React.ReactNode
 	revert?: boolean
 }
 
-function Full({ label, revert, ...props }: SwitchFullProps) {
+function Full({ label, revert, ...props }: FullProps) {
 	return (
 		<div className='hiperion-switch-container'>
 			{label && (
