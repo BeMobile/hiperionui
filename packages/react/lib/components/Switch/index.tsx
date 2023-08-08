@@ -2,7 +2,7 @@ import { cn } from '@be-kit/style-utils'
 import * as SwitchPrimitive from '@radix-ui/react-switch'
 import React, { ComponentProps } from 'react'
 
-export type SwitchRootProps = ComponentProps<typeof SwitchPrimitive.Root>
+type SwitchRootProps = ComponentProps<typeof SwitchPrimitive.Root>
 
 function Root({ children, ...props }: SwitchRootProps) {
 	return (
@@ -15,7 +15,7 @@ function Root({ children, ...props }: SwitchRootProps) {
 	)
 }
 
-export type SwitchThumbProps = ComponentProps<typeof SwitchPrimitive.Thumb>
+type SwitchThumbProps = ComponentProps<typeof SwitchPrimitive.Thumb>
 
 function Thumb({ ...props }: SwitchThumbProps) {
 	return (
@@ -37,12 +37,12 @@ function Label({
 	)
 }
 
-export interface FullSwitchProps extends SwitchRootProps {
+interface SwitchFullProps extends SwitchRootProps {
 	label?: React.ReactNode
 	revert?: boolean
 }
 
-function Full({ label, revert, ...props }: FullSwitchProps) {
+function Full({ label, revert, ...props }: SwitchFullProps) {
 	return (
 		<div className='hiperion-switch-container'>
 			{label && (

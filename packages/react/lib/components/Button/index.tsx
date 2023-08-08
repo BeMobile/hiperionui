@@ -70,7 +70,7 @@ type ButtonAsChild = {
 	className?: string
 } & ButtonVariantProps
 
-export type ButtonProps = DefaultButton | ButtonAsChild
+type ButtonProps = DefaultButton | ButtonAsChild
 
 /**
  * # Variants
