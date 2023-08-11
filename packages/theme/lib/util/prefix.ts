@@ -1,4 +1,6 @@
-export function addPrefix<T extends Record<string, unknown>>(object: T) {
+import { CSSRuleObject } from 'tailwindcss/types/config'
+
+export function addClassPrefix(object: Record<string, unknown>) {
 	const objectEntries = Object.entries(object).map(([key, value]) => {
 		let newKey = key
 
@@ -13,5 +15,5 @@ export function addPrefix<T extends Record<string, unknown>>(object: T) {
 
 	return objectEntries.reduce((acc, value) => {
 		return { ...acc, ...value }
-	}, {}) as T
+	}, {}) as CSSRuleObject
 }

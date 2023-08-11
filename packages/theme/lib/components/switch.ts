@@ -1,11 +1,11 @@
 import plugin from 'tailwindcss/plugin'
 
-import { addPrefix } from '../util'
+import { addClassPrefix } from '../util'
 
 function switch_() {
 	return plugin(({ addComponents }) => {
 		addComponents(
-			addPrefix({
+			addClassPrefix({
 				switch: {
 					/*tw*/ '@apply data-[state=checked]:bg-main-500 relative h-[32px] w-[56px] cursor-pointer rounded-full bg-gray-500 outline-none transition-colors duration-700':
 						{},

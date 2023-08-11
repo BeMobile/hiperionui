@@ -1,11 +1,11 @@
 import plugin from 'tailwindcss/plugin'
 
-import { addPrefix } from '../util'
+import { addClassPrefix } from '../util'
 
 export function badge() {
 	return plugin(({ addComponents }) => {
 		addComponents(
-			addPrefix({
+			addClassPrefix({
 				badge: {
 					/*tw*/ '@apply box-border flex items-center justify-center rounded-full font-normal leading-normal text-white':
 						{},

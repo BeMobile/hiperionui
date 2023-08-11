@@ -1,2 +1,2 @@
-export * from './addPrefix'
+export * from './prefix'
 export * from './animation'

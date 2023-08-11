@@ -1,11 +1,11 @@
 import plugin from 'tailwindcss/plugin'
 
-import { addPrefix, defaultHoverDuration } from '../util'
+import { addClassPrefix, defaultHoverDuration } from '../util'
 
 export function button() {
 	return plugin(({ addComponents }) => {
 		addComponents(
-			addPrefix({
+			addClassPrefix({
 				btn: {
 					/*tw*/ '@apply rounded-pill cursor-pointer box-border': {},
 
