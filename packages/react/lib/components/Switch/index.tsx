@@ -1,6 +1,6 @@
 import { cn } from '@be-kit/style-utils'
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import React from 'react'
+import * as React from 'react'
 
 type RootProps = React.ComponentProps<typeof SwitchPrimitive.Root>
 

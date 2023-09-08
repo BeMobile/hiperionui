@@ -1,6 +1,6 @@
 import { cn } from '@be-kit/style-utils'
 import { VariantProps as _VariantProps, cva } from 'class-variance-authority'
-import React from 'react'
+import * as React from 'react'
 
 const buttonStyles = cva(['hiperion-btn'], {
 	variants: {
